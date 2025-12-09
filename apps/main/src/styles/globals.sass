@@ -935,15 +935,15 @@ svg.UppyIcon-progressCircle
         .item-card-title span
           font-size: 0.75rem !important
         .item-price
-          margin-top: 3px !important
-          border-width: 1.2px !important
-          font-size: 0.60rem !important
-          line-height: 0.75rem !important
-          padding: 2px 4px !important
+          margin-top: 2px !important
+          font-size: 0.65rem !important
           .price-label
             font-size: 0.55rem !important
           .price-value
+            font-size: 0.65rem !important
+          .time-remaining
             font-size: 0.60rem !important
+            padding: 1px 6px !important
   .item
     // flex-basis: 0px
     .item-wrapper
@@ -1075,38 +1075,32 @@ svg.UppyIcon-progressCircle
                 margin-top: -5px
                 margin-bottom: -5px
                 font-size: .7375rem
-                .item-head
-                  @apply flex
-                  flex-wrap: nowrap
-                  .item-price
-                    @apply ml-auto text-xs font-bold rounded px-2 py-1
-                    flex-shrink: 0
-                    align-self: flex-start
+                .item-info
+                  @apply flex flex-col gap-2
+                  .item-card-title
                     display: flex
                     flex-direction: column
-                    align-items: flex-end
-                    gap: 2px
+                    word-break: break-word
+                    span
+                      font-weight: 600
+                      font-size: .9375rem
+                      text-align: left
+                      max-width: 100%
+                  .item-price
+                    @apply text-sm font-bold
                     &.buy-now
-                      @apply bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white border-2 border-neutral-200 dark:border-neutral-700
                       .price-value
-                        @apply font-bold
+                        @apply text-neutral-900 dark:text-white
                     &.auction
-                      @apply bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-2 border-blue-200 dark:border-blue-800
-                      .price-label
-                        @apply text-[0.65rem] font-medium opacity-75
-                      .price-value
-                        @apply font-bold text-sm
-                .item-card-title
-                  display: flex
-                  flex-direction: column
-                  word-break: break-word
-                  margin-bottom: 5px
-                  @apply mr-1
-                  span
-                    font-weight: 600
-                    font-size: .9375rem
-                    text-align: left
-                    max-width: 100%
+                      @apply flex items-center gap-2
+                      .price-section
+                        @apply flex flex-col gap-0.5
+                        .price-label
+                          @apply text-[0.65rem] font-medium text-neutral-500 dark:text-neutral-400
+                        .price-value
+                          @apply text-blue-600 dark:text-blue-400 font-bold
+                      .time-remaining
+                        @apply text-[0.70rem] font-medium px-2 py-0.5 bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-full ml-auto
                     word-wrap: break-word
                     display: block
                     line-height: 1.3333
