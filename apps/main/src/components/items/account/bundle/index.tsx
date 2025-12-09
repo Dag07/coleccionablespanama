@@ -162,7 +162,9 @@ export const Item = ({ item, onClickEdit }: Props): JSX.Element => {
                 editorState={item.description as string}
               />
             ) : (
-              <p className="text-xs text-neutral-500">{item.description}</p>
+              <p className="text-xs text-neutral-500">
+                {typeof item.description === 'string' ? item.description : ''}
+              </p>
             )}
           </motion.div>
           <motion.div
