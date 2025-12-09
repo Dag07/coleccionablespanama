@@ -1,0 +1,286 @@
+{
+  "assets": [
+    {
+      "token": "asset-001",
+      "name": "Pokémon – Charizard 1st Edition (Holo)",
+      "description": "Carta holográfica Charizard 1ra Edición (1999). Ícono coleccionable ideal para certificación.",
+      "media": {
+        "src": "https://images.pokemontcg.io/base1/4_hires.png",
+        "type": "image",
+        "width": 512,
+        "height": 720,
+        "dominant_color": "#e85a2e"
+      },
+      "slug": "charizard-1st-edition",
+      "tags": ["pokemon", "holo", "rare"],
+      "price": 5000,
+      "ticker": "USD",
+      "blockchain": "Pokémon TCG",
+      "billing_type": "auction"
+    },
+    {
+      "token": "asset-002",
+      "name": "Pokémon – Blastoise Shadowless (Holo)",
+      "description": "Blastoise Shadowless del set Base 1999. Condición de grado coleccionista.",
+      "media": {
+        "src": "https://images.pokemontcg.io/base1/2_hires.png",
+        "type": "image",
+        "width": 512,
+        "height": 720,
+        "dominant_color": "#3b8cc2"
+      },
+      "slug": "blastoise-shadowless",
+      "tags": ["pokemon", "shadowless"],
+      "price": 3200,
+      "ticker": "USD",
+      "blockchain": "Pokémon TCG",
+      "billing_type": "fixed_price"
+    },
+    {
+      "token": "asset-003",
+      "name": "Pokémon – Pikachu Illustrator Promo",
+      "description": "Una de las cartas de Pokéón más raras jamás producidas. Conocida como el Santo Grial del TCG.",
+      "media": {
+        "src": "https://i.imgur.com/3QRwFQv.jpeg",
+        "type": "image",
+        "width": 512,
+        "height": 720,
+        "dominant_color": "#f4d345"
+      },
+      "slug": "pikachu-illustrator",
+      "tags": ["pokemon", "ultra-rare", "promo"],
+      "price": 120000,
+      "ticker": "USD",
+      "blockchain": "Pokémon TCG",
+      "billing_type": "auction"
+    },
+    {
+      "token": "asset-004",
+      "name": "Pokémon – Mewtwo 1st Edition (Holo)",
+      "description": "Mewtwo 1ra Edición del set Base con centrado sólido y holográfico intenso.",
+      "media": {
+        "src": "https://images.pokemontcg.io/base1/10_hires.png",
+        "type": "image",
+        "width": 512,
+        "height": 720,
+        "dominant_color": "#9b7db8"
+      },
+      "slug": "mewtwo-1st-edition",
+      "tags": ["pokemon", "holo"],
+      "price": 1800,
+      "ticker": "USD",
+      "blockchain": "Pokémon TCG",
+      "billing_type": "fixed_price"
+    },
+    {
+      "token": "asset-005",
+      "name": "1909-S VDB Lincoln Cent",
+      "description": "1909-S Lincoln cent (VDB). Pieza histórica para coleccionistas de monedas estadounidenses.",
+      "media": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/1909-S_VDB_Lincoln_cent_obverse.jpg",
+        "type": "image",
+        "width": 600,
+        "height": 600,
+        "dominant_color": "#8b6f47"
+      },
+      "slug": "1909-s-vdb",
+      "tags": ["coin", "rare", "lincoln-cent"],
+      "price": 1500,
+      "ticker": "USD",
+      "blockchain": "Monedas Antiguas",
+      "billing_type": "fixed_price"
+    },
+    {
+      "token": "asset-006",
+      "name": "1921 Morgan Silver Dollar",
+      "description": "Morgan Silver Dollar acuñado en 1921. Pieza representativa de la numismática estadounidense.",
+      "media": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/USA-1921-one-dollar.jpg",
+        "type": "image",
+        "width": 600,
+        "height": 600,
+        "dominant_color": "#c0c0c0"
+      },
+      "slug": "1921-morgan-dollar",
+      "tags": ["coin", "silver-dollar"],
+      "price": 450,
+      "ticker": "USD",
+      "blockchain": "Monedas Antiguas",
+      "billing_type": "auction"
+    },
+    {
+      "token": "asset-007",
+      "name": "1889-CC Morgan Silver Dollar",
+      "description": "Morgan Silver Dollar acuñado en Carson City (1889-CC). Muy valorado por su rareza histórica.",
+      "media": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/24/1889-p-morgan-dollar-obverse.jpg",
+        "type": "image",
+        "width": 600,
+        "height": 600,
+        "dominant_color": "#b8b8b8"
+      },
+      "slug": "1889-cc-morgan-dollar",
+      "tags": ["coin", "rare", "carson-city"],
+      "price": 8500,
+      "ticker": "USD",
+      "blockchain": "Monedas Antiguas",
+      "billing_type": "auction"
+    },
+    {
+      "token": "asset-008",
+      "name": "Roman Empire – Denarius of Julius Caesar",
+      "description": "Denario de plata de la República romana con la efigie de Julio César (circa 44 a.C.). Objeto de interés histórico y numismático.",
+      "media": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/37/Silver_denarius_of_Julius_Caesar_MET_DP143309.jpg",
+        "type": "image",
+        "width": 600,
+        "height": 600,
+        "dominant_color": "#9e9e9e"
+      },
+      "slug": "julius-caesar-denarius",
+      "tags": ["coin", "ancient", "roman"],
+      "price": 15000,
+      "ticker": "USD",
+      "blockchain": "Monedas Antiguas",
+      "billing_type": "fixed_price"
+    }
+  ],
+  "collections": [
+    {
+      "token": "collection-001",
+      "name": "Pokémon 1st Edition Base Set",
+      "slug": "pokemon-1st-edition",
+      "description": "Colección completa de cartas Pokémon 1ra Edición del set Base original.",
+      "cover": {
+        "src": "https://images.pokemontcg.io/base1/4_hires.png",
+        "type": "image",
+        "dominant_color": "#e85a2e"
+      },
+      "preview_assets": [
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/4_hires.png",
+            "dominant_color": "#e85a2e"
+          }
+        },
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/10_hires.png",
+            "dominant_color": "#9b7db8"
+          }
+        },
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/2_hires.png",
+            "dominant_color": "#3b8cc2"
+          }
+        }
+      ],
+      "supply": 4,
+      "listed_count": 4,
+      "sales_volume": 12500,
+      "blockchain": "Pokémon TCG",
+      "tags": ["pokemon"]
+    },
+    {
+      "token": "collection-002",
+      "name": "Rare Coins Collection",
+      "slug": "rare-coins",
+      "description": "Selección curada de monedas raras y antiguas de distintos periodos históricos.",
+      "cover": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/1909-S_VDB_Lincoln_cent_obverse.jpg",
+        "type": "image",
+        "dominant_color": "#8b6f47"
+      },
+      "preview_assets": [
+        {
+          "media": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/1909-S_VDB_Lincoln_cent_obverse.jpg",
+            "dominant_color": "#8b6f47"
+          }
+        },
+        {
+          "media": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/USA-1921-one-dollar.jpg",
+            "dominant_color": "#c0c0c0"
+          }
+        },
+        {
+          "media": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/2/24/1889-p-morgan-dollar-obverse.jpg",
+            "dominant_color": "#b8b8b8"
+          }
+        }
+      ],
+      "supply": 4,
+      "listed_count": 4,
+      "sales_volume": 25450,
+      "blockchain": "Monedas Antiguas",
+      "tags": ["coins", "ancient"]
+    }
+  ],
+  "bundles": [
+    {
+      "token": "bundle-001",
+      "name": "Lote de Cartas Pokémon Holo",
+      "slug": "pokemon-holo-bundle",
+      "description": "Bundle de 3 cartas holográficas raras de Pokémon en excelente condición.",
+      "media": {
+        "src": "https://images.pokemontcg.io/base1/4_hires.png",
+        "type": "image",
+        "dominant_color": "#e85a2e"
+      },
+      "items_count": 3,
+      "blockchain": "Pokémon TCG",
+      "preview_items": [
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/4_hires.png",
+            "dominant_color": "#e85a2e"
+          }
+        },
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/2_hires.png",
+            "dominant_color": "#3b8cc2"
+          }
+        },
+        {
+          "media": {
+            "src": "https://images.pokemontcg.io/base1/10_hires.png",
+            "dominant_color": "#9b7db8"
+          }
+        }
+      ],
+      "tags": ["pokemon", "holo", "bundle"]
+    },
+    {
+      "token": "bundle-002",
+      "name": "Colección Morgan Silver Dollars",
+      "slug": "morgan-dollars-bundle",
+      "description": "Set completo de Morgan Silver Dollars de diferentes años y casas de acuñación.",
+      "media": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/USA-1921-one-dollar.jpg",
+        "type": "image",
+        "dominant_color": "#c0c0c0"
+      },
+      "items_count": 2,
+      "blockchain": "Monedas Antiguas",
+      "preview_items": [
+        {
+          "media": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/USA-1921-one-dollar.jpg",
+            "dominant_color": "#c0c0c0"
+          }
+        },
+        {
+          "media": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/2/24/1889-p-morgan-dollar-obverse.jpg",
+            "dominant_color": "#b8b8b8"
+          }
+        }
+      ],
+      "tags": ["coins", "morgan-dollar", "bundle"]
+    }
+  ]
+}

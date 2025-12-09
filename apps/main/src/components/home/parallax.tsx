@@ -1,0 +1,372 @@
+import { ReactNode, useRef } from 'react'
+import Image from 'next/image'
+
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame
+} from 'framer-motion'
+import { wrap } from '@motionone/utils'
+
+interface ParallaxProps {
+  children: ReactNode
+  baseVelocity: number
+}
+
+function Column({ children, baseVelocity = 100 }: ParallaxProps) {
+  const baseY = useMotionValue(0)
+  const { scrollY } = useScroll()
+  const scrollVelocity = useVelocity(scrollY)
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  })
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false
+  })
+
+  const y = useTransform(baseY, (v) => `${wrap(-20, -45, v)}%`)
+
+  const directionFactor = useRef<number>(1)
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000)
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get()
+
+    baseY.set(baseY.get() + moveBy)
+  })
+
+  return (
+    <div>
+      <motion.div
+        className="grid flex-shrink-0 grid-cols-1 gap-4 md:gap-7"
+        style={{ y }}
+      >
+        <div className="grid flex-shrink-0 grid-cols-1 gap-4 md:gap-8">
+          {children}{' '}
+        </div>
+        <div className="grid flex-shrink-0 grid-cols-1 gap-4 md:gap-8">
+          {children}{' '}
+        </div>
+        <div className="grid flex-shrink-0 grid-cols-1 gap-4 md:gap-8">
+          {children}{' '}
+        </div>
+        <div className="grid flex-shrink-0 grid-cols-1 gap-4 md:gap-8">
+          {children}{' '}
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+const Parallax = () => {
+  return (
+    <motion.section
+      initial={{ opacity: 0, scale: 1.02, y: 5 }}
+      animate={{ opacity: 1, rotate: 0, scale: 1, y: 0 }}
+      transition={{
+        ease: 'easeOut',
+        duration: 0.9,
+        delay: 0.2
+      }}
+      style={{ height: '100vh' }}
+      className="mx-4 flex flex-row gap-3 md:mx-8 md:gap-8"
+    >
+      <Column baseVelocity={-0.4}>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-1.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-8.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-3.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-4.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+      </Column>
+      <Column baseVelocity={0.4}>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-5.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-7.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-2.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-1.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+      </Column>
+
+      <div className="hidden md:block">
+        <Column baseVelocity={-0.3}>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-7.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-4.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-1.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-6.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+        </Column>
+      </div>
+      <Column baseVelocity={0.4}>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-3.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-6.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-5.png"
+            loading="eager"
+            alt={'Tarjeta 2'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+        <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+          <Image
+            src="/images/card-pic-7.png"
+            loading="eager"
+            alt={'Tarjeta 4'}
+            width={440}
+            height={640}
+            className="h-full w-full object-cover object-center"
+            unoptimized
+          />
+        </div>
+      </Column>
+      <div className="hidden md:block">
+        <Column baseVelocity={-0.4}>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-6.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-2.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-5.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-8.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+        </Column>
+      </div>
+      <div className="hidden lg:block">
+        <Column baseVelocity={0.3}>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-4.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-6.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-3.png"
+              loading="eager"
+              alt={'Tarjeta 2'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+          <div className="w-max-[12rem] relative h-80 overflow-hidden rounded-lg md:h-64">
+            <Image
+              src="/images/card-pic-5.png"
+              loading="eager"
+              alt={'Tarjeta 4'}
+              width={440}
+              height={640}
+              className="h-full w-full object-cover object-center"
+              unoptimized
+            />
+          </div>
+        </Column>
+      </div>
+    </motion.section>
+  )
+}
+
+export default Parallax
