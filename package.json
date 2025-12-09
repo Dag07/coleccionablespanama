@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "api": "json-server --watch db.json --port 3001",
-    "dev": "npm run api"
+    "dev": "npm run api",
+    "vercel-build": "nx build main --prod"
   },
   "private": true,
   "dependencies": {
