@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx nx build main --prod",
+  "buildCommand": "npx nx build main --prod && mkdir -p dist/apps/main/apps/main && cp apps/main/db.json dist/apps/main/apps/main/",
   "installCommand": "npm install",
   "framework": "nextjs",
   "outputDirectory": "dist/apps/main"
