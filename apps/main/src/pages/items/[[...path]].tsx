@@ -83,6 +83,7 @@ type QueryFiltersProps = {
 
 const Items = () => {
   const { replace, asPath, query, isReady } = useRouter()
+  const pathHydratedRef = useRef(false)
 
   const pathParams = (query.path as string[]) || []
   const search = asPath.split('?')[1] ?? ''
@@ -170,19 +171,8 @@ const Items = () => {
 
   // Keep path in sync with selected category (single) and optional slug filter
   useEffect(() => {
-    if (!isReady) return
-    const { filters, paginate, sort } = localFiltersState
-
-    const pathCategory = getCategoryValue(pathParams[0])
-    const pathSlug = pathParams[1]
-    const currentCategory =
-      Array.isArray(filters?.blockchain) && filters?.blockchain[0]
-    const currentSlug =
-      typeof filters?.slug === 'string' ? filters.slug : undefined
-
-    if (pathCategory !== currentCategory || pathSlug !== currentSlug) {
-      return
-    }
+    if (!isReady || !pathHydratedRef.current) return
+    const { filters, sort } = localFiltersState
 
     const categorySlug =
       Array.isArray(filters?.blockchain) && filters.blockchain.length === 1
@@ -220,15 +210,8 @@ const Items = () => {
       const useShallow = !!(categorySlug || slugSegment)
       replace(nextPathWithQuery, undefined, useShallow ? { shallow: true } : {})
     }
-
-    call({
-      limit: LIMIT,
-      filters: filters || {},
-      offset: paginate.offset,
-      sort: ASSETS_SORT_TABS[tabIndex]?.value || ASSETS_SORT_TABS[0].value
-    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localFiltersState, isReady, replace, asPath, tabIndex])
+  }, [localFiltersState.filters, localFiltersState.sort, isReady])
 
   useEffect(() => {
     // When user navigates directly to a path param, sync it back to filters
@@ -244,7 +227,12 @@ const Items = () => {
         ? localFiltersState.filters?.slug
         : undefined
 
-    if (pathCategory === currentCategory && pathSlug === currentSlug) {
+    // If no path params and no filters, or if path matches filters, mark as hydrated
+    if (
+      (!pathCategory && !pathSlug && !currentCategory && !currentSlug) ||
+      (pathCategory === currentCategory && pathSlug === currentSlug)
+    ) {
+      pathHydratedRef.current = true
       return
     }
 
@@ -267,8 +255,23 @@ const Items = () => {
       })(),
       paginate: { limit: LIMIT, offset: 0 }
     }))
+    pathHydratedRef.current = true
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathParams.join('/'), isReady])
+
+  // Separate effect for API calls
+  useEffect(() => {
+    if (!isReady || !pathHydratedRef.current) return
+
+    const { filters, paginate, sort } = localFiltersState
+    call({
+      limit: LIMIT,
+      filters: filters || {},
+      offset: paginate.offset,
+      sort: ASSETS_SORT_TABS[tabIndex]?.value || ASSETS_SORT_TABS[0].value
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localFiltersState, isReady, tabIndex])
 
   useComponentDidUpdate(
     (prev) => {

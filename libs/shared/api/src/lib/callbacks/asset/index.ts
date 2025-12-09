@@ -11,19 +11,7 @@ export const getAsset = async (
   slug?: string
 ): Promise<GetAssetResponseType> => {
   // JSON Server: fetch all assets and filter by slug
-  const fetchItems = async () => {
-    try {
-      return await api.get('/items')
-    } catch (error: unknown) {
-      const status = (error as any)?.response?.status
-      if (status === 404) {
-        return await api.get('/assets')
-      }
-      throw error
-    }
-  }
-
-  const { data } = await fetchItems()
+  const { data } = await api.get('/assets')
 
   if (Array.isArray(data)) {
     const asset = data.find((a) => a.slug === slug)

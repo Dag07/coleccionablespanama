@@ -7,19 +7,7 @@ import {
 const getAssets = async (
   params?: GetAssetsParamsType
 ): Promise<GetAssetsResponseType> => {
-  const fetchItems = async () => {
-    try {
-      return await api.get('/items')
-    } catch (error: unknown) {
-      const status = (error as any)?.response?.status
-      if (status === 404) {
-        return await api.get('/assets')
-      }
-      throw error
-    }
-  }
-
-  const { data } = await fetchItems()
+  const { data } = await api.get('/assets')
 
   // Transform JSON Server flat array response to expected paginated format
   if (Array.isArray(data)) {

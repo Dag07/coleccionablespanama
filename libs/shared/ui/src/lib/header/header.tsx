@@ -101,7 +101,7 @@ const Header = ({
                       alt="Coleccionables Panamá"
                       width={38}
                       height={38}
-                      className="h-9 w-auto"
+                      className="h-12 w-auto"
                     />
                   </span>
                   <span className="hidden sm:block">
@@ -110,7 +110,7 @@ const Header = ({
                       alt="Coleccionables Panamá"
                       width={120}
                       height={32}
-                      className="h-8 w-auto"
+                      className="h-12 w-auto"
                     />
                   </span>
                 </>
@@ -330,7 +330,7 @@ const Header = ({
                       alt="Coleccionables Panamá"
                       width={120}
                       height={32}
-                      className="h-8 w-auto"
+                      className="h-12 w-auto"
                     />
                   </Link>
                   <div className="-mr-2">

@@ -16,7 +16,8 @@
       "price": 5000,
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
-      "billing_type": "auction"
+      "billing_type": "auction",
+      "auction_ends_at": "2025-12-12T23:59:59Z"
     },
     {
       "token": "asset-002",
@@ -52,7 +53,8 @@
       "price": 120000,
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
-      "billing_type": "auction"
+      "billing_type": "auction",
+      "auction_ends_at": "2025-12-14T23:59:59Z"
     },
     {
       "token": "asset-004",
@@ -106,7 +108,8 @@
       "price": 450,
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
-      "billing_type": "auction"
+      "billing_type": "auction",
+      "auction_ends_at": "2025-12-11T23:59:59Z"
     },
     {
       "token": "asset-007",
@@ -124,7 +127,8 @@
       "price": 8500,
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
-      "billing_type": "auction"
+      "billing_type": "auction",
+      "auction_ends_at": "2025-12-16T23:59:59Z"
     },
     {
       "token": "asset-008",

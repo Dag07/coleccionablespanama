@@ -20,8 +20,9 @@ const Item = ({ item }: Props): JSX.Element => {
 
   // Format price with commas
   const formatPrice = (price: number) => {
+    const hasDecimals = price % 1 !== 0
     return new Intl.NumberFormat('en-US', {
-      minimumFractionDigits: 2,
+      minimumFractionDigits: hasDecimals ? 2 : 0,
       maximumFractionDigits: 2
     }).format(price)
   }
@@ -31,22 +32,24 @@ const Item = ({ item }: Props): JSX.Element => {
   // Calculate time remaining for auctions
   const getTimeRemaining = () => {
     if (!item.auction_ends_at) return null
-    
+
     const endDate = new Date(item.auction_ends_at)
     const now = new Date()
     const diffMs = endDate.getTime() - now.getTime()
-    
+
     if (diffMs <= 0) return 'Finalizada'
-    
+
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-    const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60))
-    
+    const diffHours = Math.floor(
+      (diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    )
+
     if (diffDays > 0) {
       return `${diffDays}d ${diffHours}h`
     } else if (diffHours > 0) {
-      return `${diffHours}h ${diffMinutes}m`
+      return `${diffHours}h`
     } else {
+      const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60))
       return `${diffMinutes}m`
     }
   }
@@ -89,27 +92,24 @@ const Item = ({ item }: Props): JSX.Element => {
                       <div className="item-card-title">
                         <span>{item.name}</span>
                       </div>
-                      <div className={`item-price ${isAuction ? 'auction' : 'buy-now'}`}>
-                        {isAuction ? (
-                          <>
-                            <div className="price-section">
-                              <span className="price-label">Oferta actual</span>
-                              <span className="price-value">${formatPrice(item.price)}</span>
-                            </div>
-                            {timeRemaining && (
-                              <span className="time-remaining">{timeRemaining}</span>
-                            )}
-                          </>
-                        ) : (
-                          <span className="price-value">${formatPrice(item.price)}</span>
+                      <div className="item-price">
+                        <div className="price-section">
+                          <span className="price-value">
+                            ${formatPrice(item.price)}
+                          </span>
+                          {isAuction ? (
+                            <span className="price-label">Oferta actual</span>
+                          ) : (
+                            <span className="buy-now-label">Compra ya</span>
+                          )}
+                        </div>
+                        {isAuction && timeRemaining && (
+                          <div className="time-info">
+                            <span className="time-text">{timeRemaining}</span>
+                          </div>
                         )}
                       </div>
                     </div>
-                  </div>
-                  <div className="item-card-action">
-                    <button type="button">
-                      {isAuction ? 'Ofertar' : 'Comprar'}
-                    </button>
                   </div>
                 </div>
               </>
