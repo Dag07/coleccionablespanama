@@ -17,6 +17,16 @@ type Props = {
  */
 const Item = ({ item }: Props): JSX.Element => {
   const categorySlug = getCategorySlug(item.blockchain)
+  
+  // Format price with commas
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(price)
+  }
+  
+  const isAuction = item.billing_type === 'auction'
 
   return (
     <div className="item">
@@ -54,13 +64,20 @@ const Item = ({ item }: Props): JSX.Element => {
                       <div className="item-card-title">
                         <span>{item.name}</span>
                       </div>
-                      <div className="item-price">
-                        {item.price} {item.ticker}
+                      <div className={`item-price ${isAuction ? 'auction' : 'buy-now'}`}>
+                        {isAuction ? (
+                          <>
+                            <span className="price-label">Oferta actual</span>
+                            <span className="price-value">${formatPrice(item.price)}</span>
+                          </>
+                        ) : (
+                          <span className="price-value">${formatPrice(item.price)}</span>
+                        )}
                       </div>
                     </div>
                   </div>
                   <div className="item-card-action">
-                    <button type="button">Comprar</button>
+                    <button type="button">{isAuction ? 'Ofertar' : 'Comprar'}</button>
                   </div>
                 </div>
               </>

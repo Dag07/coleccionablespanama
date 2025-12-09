@@ -173,6 +173,17 @@ const Items = () => {
     if (!isReady) return
     const { filters, paginate, sort } = localFiltersState
 
+    const pathCategory = getCategoryValue(pathParams[0])
+    const pathSlug = pathParams[1]
+    const currentCategory =
+      Array.isArray(filters?.blockchain) && filters?.blockchain[0]
+    const currentSlug =
+      typeof filters?.slug === 'string' ? filters.slug : undefined
+
+    if (pathCategory !== currentCategory || pathSlug !== currentSlug) {
+      return
+    }
+
     const categorySlug =
       Array.isArray(filters?.blockchain) && filters.blockchain.length === 1
         ? CATEGORY_SLUG_BY_VALUE[filters.blockchain[0]]

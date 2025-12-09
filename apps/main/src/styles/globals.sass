@@ -939,6 +939,11 @@ svg.UppyIcon-progressCircle
           border-width: 1.2px !important
           font-size: 0.60rem !important
           line-height: 0.75rem !important
+          padding: 2px 4px !important
+          .price-label
+            font-size: 0.55rem !important
+          .price-value
+            font-size: 0.60rem !important
   .item
     // flex-basis: 0px
     .item-wrapper
@@ -1074,9 +1079,23 @@ svg.UppyIcon-progressCircle
                   @apply flex
                   flex-wrap: nowrap
                   .item-price
-                    @apply ml-auto text-xs font-bold text-green-500 border-2 border-green-500 rounded px-1 py-1
+                    @apply ml-auto text-xs font-bold rounded px-2 py-1
                     flex-shrink: 0
                     align-self: flex-start
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-end
+                    gap: 2px
+                    &.buy-now
+                      @apply bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white border-2 border-neutral-200 dark:border-neutral-700
+                      .price-value
+                        @apply font-bold
+                    &.auction
+                      @apply bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-2 border-blue-200 dark:border-blue-800
+                      .price-label
+                        @apply text-[0.65rem] font-medium opacity-75
+                      .price-value
+                        @apply font-bold text-sm
                 .item-card-title
                   display: flex
                   flex-direction: column
