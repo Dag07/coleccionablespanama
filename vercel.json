@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx nx build main --prod && cp -rL dist/apps/main/.next .next && cp -r apps/main/public public && ls -la .next && cat .next/routes-manifest.json | head -5",
+  "buildCommand": "npx nx build main --prod && cp -r dist/apps/main/.next/. .next/ && cp -r apps/main/public public",
   "installCommand": "npm install",
   "framework": "nextjs"
 }
