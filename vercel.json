@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npx nx build main --prod",
+  "outputDirectory": "dist/apps/main",
+  "framework": "nextjs",
+  "installCommand": "npm install"
+}

@@ -15,7 +15,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: true
   },
-  concurrentFeatures: true,
   images: {
     domains: [
       '127.0.0.1',
