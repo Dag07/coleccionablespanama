@@ -5,7 +5,7 @@ import {
 } from 'coleccionablespanama/shared/types'
 
 const getUserBundles = async (
-  props?: GetUserBundlesParamsType
+  props: GetUserBundlesParamsType
 ): Promise<GetUserBundlesResponseType> => {
   // Mock: return empty paginated response for user bundles
   return {

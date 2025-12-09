@@ -1,11 +1,11 @@
 import api from '../../../index'
 import {
-  GetUserCollectionsParamsType,
+  GetUserCollectionsCallbackType,
   GetUserCollectionsResponseType
 } from 'coleccionablespanama/shared/types'
 
 const getUserCollections = async (
-  props?: GetUserCollectionsParamsType
+  props: GetUserCollectionsCallbackType
 ): Promise<GetUserCollectionsResponseType> => {
   // Mock: return empty paginated response for user collections
   return {

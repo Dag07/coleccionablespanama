@@ -5,7 +5,7 @@ import {
 } from 'coleccionablespanama/shared/types'
 
 const getUserAssets = async (
-  props?: GetUserAssetsParamsType
+  props: GetUserAssetsParamsType
 ): Promise<GetUserAssetsResponseType> => {
   // Mock: return empty paginated response for user assets
   return {

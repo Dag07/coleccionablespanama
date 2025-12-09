@@ -55,19 +55,13 @@ const getBundleAssetsBySlug = async (
     )
 
     const { limit = 20, offset = 0 } = params || {}
+    const paginatedAssets = bundleAssets.slice(offset, offset + limit)
 
     return {
       record: {
         slug: bundle.slug,
         token: bundle.token,
-        assets: {
-          records: bundleAssets,
-          paginate: {
-            count: bundleAssets.length,
-            limit,
-            offset
-          }
-        }
+        assets: paginatedAssets
       }
     }
   }

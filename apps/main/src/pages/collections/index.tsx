@@ -73,6 +73,17 @@ const mapper = (
   return data
 }
 
+const assetsMapper = (
+  data: GetAssetsResponseType,
+  prev?: GetAssetsResponseType
+): GetAssetsResponseType => {
+  if (prev && Object.keys(prev).length) {
+    return { ...prev, ...data, records: [...prev.records, ...data.records] }
+  }
+
+  return data
+}
+
 const LIMIT = 20
 
 type QueryFiltersProps = {
@@ -137,7 +148,7 @@ const Collections = () => {
     clearAsyncData: clearAssetsData
   } = useAsync<GetAssetsResponseType, GetAssetsParamsType>({
     callback: getAssets,
-    mapper
+    mapper: assetsMapper
   })
 
   const [assetsPaginate, setAssetsPaginate] = useState({

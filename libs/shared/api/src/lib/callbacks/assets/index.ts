@@ -42,7 +42,7 @@ const getAssets = async (
         !filters?.billing_type || item.billing_type === filters.billing_type
 
       const minPrice = filters?.price?.ge
-      const maxPrice = filters?.price?.le
+      const maxPrice = filters?.price?.lg
       const matchesMin =
         minPrice === undefined || item.price >= Number(minPrice)
       const matchesMax =
