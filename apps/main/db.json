@@ -17,7 +17,14 @@
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
       "billing_type": "auction",
-      "auction_ends_at": "2025-12-12T23:59:59Z"
+      "auction_ends_at": "2025-12-12T23:59:59Z",
+      "year": 1999,
+      "grade": 9,
+      "authenticator": "PSA",
+      "card_type": ["Holo", "1st Edition"],
+      "set": "Base Set",
+      "rarity": "Holo Rare",
+      "subcategory": "Pokémon (English)"
     },
     {
       "token": "asset-002",
@@ -35,14 +42,21 @@
       "price": 3200,
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
-      "billing_type": "fixed_price"
+      "billing_type": "fixed_price",
+      "year": 1999,
+      "grade": 8,
+      "authenticator": "BGS",
+      "card_type": ["Holo", "Shadowless"],
+      "set": "Base Set",
+      "rarity": "Holo Rare",
+      "subcategory": "Pokémon (English)"
     },
     {
       "token": "asset-003",
       "name": "Pokémon – Pikachu Illustrator Promo",
       "description": "Una de las cartas de Pokéón más raras jamás producidas. Conocida como el Santo Grial del TCG.",
       "media": {
-        "src": "https://i.imgur.com/3QRwFQv.jpeg",
+        "src": "https://images.wikidexcdn.net/mwuploads/wikidex/a/a9/latest/20210927191950/Pok%C3%A9mon_Illustrator_%28CoroCoro_Promo_JTCG%29.png",
         "type": "image",
         "width": 512,
         "height": 720,
@@ -54,7 +68,14 @@
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
       "billing_type": "auction",
-      "auction_ends_at": "2025-12-14T23:59:59Z"
+      "auction_ends_at": "2025-12-14T23:59:59Z",
+      "year": 1998,
+      "grade": 10,
+      "authenticator": "PSA",
+      "card_type": ["Promo"],
+      "set": "Promo",
+      "rarity": "Ultra Rare",
+      "subcategory": "Pokémon (Japanese)"
     },
     {
       "token": "asset-004",
@@ -72,7 +93,14 @@
       "price": 1800,
       "ticker": "USD",
       "blockchain": "Pokémon TCG",
-      "billing_type": "fixed_price"
+      "billing_type": "fixed_price",
+      "year": 1999,
+      "grade": 7,
+      "authenticator": "CGC",
+      "card_type": ["Holo", "1st Edition"],
+      "set": "Base Set",
+      "rarity": "Holo Rare",
+      "subcategory": "Pokémon (English)"
     },
     {
       "token": "asset-005",
@@ -90,7 +118,13 @@
       "price": 1500,
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
-      "billing_type": "fixed_price"
+      "billing_type": "fixed_price",
+      "year": 1909,
+      "grade": 65,
+      "authenticator": "PCGS",
+      "coin_type": "Lincoln Cent",
+      "metal": "Copper",
+      "country": "United States"
     },
     {
       "token": "asset-006",
@@ -109,7 +143,13 @@
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
       "billing_type": "auction",
-      "auction_ends_at": "2025-12-11T23:59:59Z"
+      "auction_ends_at": "2025-12-11T23:59:59Z",
+      "year": 1921,
+      "grade": 63,
+      "authenticator": "NGC",
+      "coin_type": "Silver Dollar",
+      "metal": "Silver",
+      "country": "United States"
     },
     {
       "token": "asset-007",
@@ -128,7 +168,13 @@
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
       "billing_type": "auction",
-      "auction_ends_at": "2025-12-16T23:59:59Z"
+      "auction_ends_at": "2025-12-16T23:59:59Z",
+      "year": 1889,
+      "grade": 64,
+      "authenticator": "PCGS",
+      "coin_type": "Silver Dollar",
+      "metal": "Silver",
+      "country": "United States"
     },
     {
       "token": "asset-008",
@@ -146,7 +192,13 @@
       "price": 15000,
       "ticker": "USD",
       "blockchain": "Monedas Antiguas",
-      "billing_type": "fixed_price"
+      "billing_type": "fixed_price",
+      "year": -44,
+      "grade": 45,
+      "authenticator": "NGC",
+      "coin_type": "Denarius",
+      "metal": "Silver",
+      "country": "Roman Empire"
     }
   ],
   "collections": [

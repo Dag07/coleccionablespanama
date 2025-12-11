@@ -26,22 +26,77 @@ const getAssets = async (
         item.slug === filters.slug ||
         item.token === filters.slug
 
+      // Billing type (Comprar Ahora / Subasta)
+      const billingTypes = normalizeArray(filters?.billing_type)
       const matchesBilling =
-        !filters?.billing_type || item.billing_type === filters.billing_type
+        billingTypes.length === 0 || billingTypes.includes(item.billing_type)
 
-      const minPrice = filters?.price?.ge
-      const maxPrice = filters?.price?.lg
-      const matchesMin =
-        minPrice === undefined || item.price >= Number(minPrice)
-      const matchesMax =
-        maxPrice === undefined || item.price <= Number(maxPrice)
+      // Price range
+      const priceFrom = filters?.price?.from
+      const priceTo = filters?.price?.to
+      const matchesPriceFrom = !priceFrom || item.price >= Number(priceFrom)
+      const matchesPriceTo = !priceTo || item.price <= Number(priceTo)
+
+      // Year range
+      const yearFrom = filters?.year?.from
+      const yearTo = filters?.year?.to
+      const matchesYearFrom =
+        !yearFrom || (item.year && item.year >= Number(yearFrom))
+      const matchesYearTo =
+        !yearTo || (item.year && item.year <= Number(yearTo))
+
+      // Grade range
+      const gradeFrom = filters?.grade?.from
+      const gradeTo = filters?.grade?.to
+      const matchesGradeFrom =
+        !gradeFrom || (item.grade && item.grade >= Number(gradeFrom))
+      const matchesGradeTo =
+        !gradeTo || (item.grade && item.grade <= Number(gradeTo))
+
+      // Authenticator
+      const matchesAuthenticator =
+        !filters?.authenticator ||
+        (filters.authenticator === 'N/A'
+          ? !item.authenticator || item.authenticator === 'N/A'
+          : item.authenticator === filters.authenticator)
+
+      // Card type (array field - match if any selected type is in item's card_type array)
+      const cardTypes = normalizeArray(filters?.card_type)
+      const matchesCardType =
+        cardTypes.length === 0 ||
+        (item.card_type &&
+          Array.isArray(item.card_type) &&
+          cardTypes.some((type) => item.card_type.includes(type)))
+
+      // Subcategory (for cards)
+      const subcategories = normalizeArray(filters?.subcategory)
+      const matchesSubcategory =
+        subcategories.length === 0 || subcategories.includes(item.subcategory)
+
+      // Metal (for coins)
+      const metals = normalizeArray(filters?.metal)
+      const matchesMetal = metals.length === 0 || metals.includes(item.metal)
+
+      // Country (for coins)
+      const countries = normalizeArray(filters?.country)
+      const matchesCountry =
+        countries.length === 0 || countries.includes(item.country)
 
       return (
         matchesCategory &&
         matchesSlug &&
         matchesBilling &&
-        matchesMin &&
-        matchesMax
+        matchesPriceFrom &&
+        matchesPriceTo &&
+        matchesYearFrom &&
+        matchesYearTo &&
+        matchesGradeFrom &&
+        matchesGradeTo &&
+        matchesAuthenticator &&
+        matchesCardType &&
+        matchesSubcategory &&
+        matchesMetal &&
+        matchesCountry
       )
     })
 

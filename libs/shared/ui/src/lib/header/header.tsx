@@ -22,15 +22,15 @@ import {
 
 const pagesLinks = [
   {
-    name: 'Pokémon',
+    name: 'Cartas Coleccionables',
     description: 'Cartas y colecciones Pokémon seleccionadas.',
-    href: '/items/pokemon',
+    href: '/cartas',
     icon: ChartBarIcon
   },
   {
-    name: 'Monedas',
+    name: 'Numismática',
     description: 'Monedas antiguas y conmemorativas.',
-    href: '/items/monedas',
+    href: '/numismatica',
     icon: ChartBarIcon
   },
   {
@@ -134,22 +134,16 @@ const Header = ({
               className="mr-0 hidden space-x-10 md:mr-auto md:flex md:space-x-6"
             >
               <Link
-                href={'/items'}
+                href={'/cartas'}
                 className="text-base font-medium text-slate-900 hover:text-slate-800 dark:text-slate-50 dark:hover:text-slate-300"
               >
-                Todos los artículos
+                Cartas
               </Link>
               <Link
-                href={'/items/pokemon'}
+                href={'/numismatica'}
                 className="text-base font-medium text-slate-900 hover:text-slate-800 dark:text-slate-50 dark:hover:text-slate-300"
               >
-                Pokémon
-              </Link>
-              <Link
-                href={'/items/monedas'}
-                className="text-base font-medium text-slate-900 hover:text-slate-800 dark:text-slate-50 dark:hover:text-slate-300"
-              >
-                Monedas
+                Numismática
               </Link>
               <Link
                 href={'/items/otros'}

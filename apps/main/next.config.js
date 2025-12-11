@@ -28,6 +28,26 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/items/monedas/:slug',
+        destination: '/numismatica/:slug',
+        permanent: true
+      },
+      {
+        source: '/items/pokemon/:slug',
+        destination: '/cartas/:slug',
+        permanent: true
+      },
+      {
+        source: '/items/cartas/:slug',
+        destination: '/cartas/:slug',
+        permanent: true
+      },
+      {
+        source: '/items/numismatica/:slug',
+        destination: '/numismatica/:slug',
+        permanent: true
+      },
+      {
         source: '/items/monedas/:path*',
         destination: '/numismatica/:path*',
         permanent: true

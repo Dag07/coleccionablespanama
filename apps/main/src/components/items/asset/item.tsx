@@ -62,8 +62,7 @@ const Item = ({ item }: Props): JSX.Element => {
         <div className="item-block">
           <div className="item-card">
             <Link
-              href={'/items/[category]/[slug]'}
-              as={`/items/${categorySlug}/${encodeURIComponent(
+              href={`/${categorySlug}/${encodeURIComponent(
                 item.slug as string
               )}`}
               className="item-card-link"
@@ -76,6 +75,11 @@ const Item = ({ item }: Props): JSX.Element => {
                       backgroundColor: item.media?.dominant_color || undefined
                     }}
                   >
+                    {item.authenticator && item.grade && (
+                      <div className="authentication-badge">
+                        {item.authenticator} {item.grade}
+                      </div>
+                    )}
                     <Image
                       src={item.media?.src}
                       width="300"
@@ -92,23 +96,38 @@ const Item = ({ item }: Props): JSX.Element => {
                       <div className="item-card-title">
                         <span>{item.name}</span>
                       </div>
-                      <div className="item-price">
-                        <div className="price-section">
-                          <span className="price-value">
-                            ${formatPrice(item.price)}
-                          </span>
-                          {isAuction ? (
+                    </div>
+                  </div>
+                  <div className="item-card-footer">
+                    <div
+                      className={`item-price ${
+                        isAuction ? 'auction' : 'buy-now'
+                      }`}
+                    >
+                      {isAuction ? (
+                        <>
+                          <div className="price-section">
                             <span className="price-label">Oferta actual</span>
-                          ) : (
-                            <span className="buy-now-label">Compra ya</span>
-                          )}
-                        </div>
-                        {isAuction && timeRemaining && (
-                          <div className="time-info">
-                            <span className="time-text">{timeRemaining}</span>
+                            <span className="price-value">
+                              ${formatPrice(item.price)}
+                            </span>
                           </div>
-                        )}
-                      </div>
+                          {timeRemaining && (
+                            <span className="time-remaining">
+                              {timeRemaining}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <span className="price-value">
+                          ${formatPrice(item.price)}
+                        </span>
+                      )}
+                    </div>
+                    <div className="item-card-action">
+                      <button>
+                        {isAuction ? 'Ver subasta' : 'Comprar ahora'}
+                      </button>
                     </div>
                   </div>
                 </div>

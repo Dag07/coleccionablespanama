@@ -11,8 +11,8 @@ const Hero = () => {
         transition={{ duration: 0.3 }}
         className="relative h-full max-h-[calc(100vh_-_80px)] w-full overflow-hidden"
       >
-        <div className="pointer-events-none z-1 absolute inset-0 h-1/4 bg-gradient-to-b from-black/90"></div>
-        <div className="pointer-events-none z-1 absolute -inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#010d47]"></div>
+        <div className="z-1 pointer-events-none absolute inset-0 h-1/4 bg-gradient-to-b from-black/90"></div>
+        <div className="z-1 pointer-events-none absolute -inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#010d47]"></div>
 
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 1.1 }}
@@ -20,7 +20,7 @@ const Hero = () => {
           transition={{ ease: 'easeOut', duration: 1, delay: 0.3 }}
           className="absolute z-10 flex h-full w-full flex-col items-center justify-center space-y-6 px-4"
         >
-          <div className="pointer-events-none backdrop-blur-xs absolute inset-0 rounded-lg bg-black/40"></div>
+          <div className="backdrop-blur-xs pointer-events-none absolute inset-0 rounded-lg bg-black/40"></div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,13 +50,13 @@ const Hero = () => {
               href="/numismatica"
               className="group relative overflow-hidden rounded-full border-2 border-amber-500 bg-amber-600 px-8 py-4 text-center text-xl font-semibold text-white shadow-lg transition-all duration-150 hover:scale-105 hover:shadow-xl"
             >
-              <span className="relative z-10">Monedas</span>
+              <span className="relative z-10">Numismática</span>
             </Link>
             <Link
               href="/cartas"
               className="group relative overflow-hidden rounded-full border-2 border-red-500 bg-red-600 px-8 py-4 text-center text-xl font-semibold text-white shadow-lg transition-all duration-150 hover:scale-105 hover:shadow-xl"
             >
-              <span className="relative z-10">Pokémon</span>
+              <span className="relative z-10">Cartas Coleccionables</span>
             </Link>
             <Link
               href="/items/otros"

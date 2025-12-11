@@ -1,13 +1,16 @@
 export const CATEGORY_SLUG_BY_VALUE: Record<string, string> = {
-  'Pokémon TCG': 'pokemon',
-  'Monedas Antiguas': 'monedas',
+  'Pokémon TCG': 'cartas',
+  'Monedas Antiguas': 'numismatica',
   Otros: 'otros'
 }
 
 export const CATEGORY_LABEL_BY_SLUG: Record<string, string> = {
+  cartas: 'Cartas Pokémon',
+  numismatica: 'Numismática',
+  otros: 'Otros coleccionables',
+  // Legacy support
   pokemon: 'Cartas Pokémon',
-  monedas: 'Monedas de colección',
-  otros: 'Otros coleccionables'
+  monedas: 'Numismática'
 }
 
 export const CATEGORY_VALUE_BY_SLUG: Record<string, string> = Object.entries(

@@ -14,9 +14,24 @@ export type GetAssetsFiltersParamsType = {
   price?: {
     lg?: number | string
     ge?: number | string
+    from?: number | string
+    to?: number | string
   }
-  billing_type?: BillingTypeValue
-  blockchain?: string[]
+  billing_type?: BillingTypeValue | BillingTypeValue[]
+  blockchain?: string | string[]
+  subcategory?: string | string[]
+  card_type?: string | string[]
+  year?: {
+    from?: number | string
+    to?: number | string
+  }
+  grade?: {
+    from?: number | string
+    to?: number | string
+  }
+  authenticator?: string
+  metal?: string | string[]
+  country?: string | string[]
 }
 
 export type GetAssetsParamsType = {

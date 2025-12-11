@@ -79,4 +79,16 @@ export type AssetType = {
   auction_ends_at?: string | null
   buy_now_price?: number | null
   current_bid?: number | null
+  // Card-specific fields
+  subcategory?: string
+  year?: number
+  grade?: number
+  authenticator?: string
+  card_type?: string[]
+  set?: string
+  rarity?: string
+  // Coin-specific fields
+  metal?: string
+  coin_type?: string
+  country?: string
 }
