@@ -24,6 +24,25 @@ const nextConfig = {
       'images.pokemontcg.io',
       'i.imgur.com'
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/items/monedas/:path*',
+        destination: '/numismatica/:path*',
+        permanent: true
+      },
+      {
+        source: '/items/pokemon/:path*',
+        destination: '/cartas/:path*',
+        permanent: true
+      },
+      {
+        source: '/items',
+        destination: '/',
+        permanent: false
+      }
+    ]
   }
 }
 

@@ -24,8 +24,8 @@ echo -e "${GREEN}✅ Starting JSON Server (Mock API)...${NC}"
 echo -e "   📡 API will be available at: ${BLUE}http://localhost:3001${NC}"
 echo ""
 
-# Start JSON Server in background
-npm run api &
+# Start JSON Server in background (db.json is at apps/main/db.json)
+npx json-server --watch apps/main/db.json --port 3001 &
 API_PID=$!
 
 # Wait for API to start

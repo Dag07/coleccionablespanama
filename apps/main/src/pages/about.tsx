@@ -9,7 +9,7 @@ const AboutPage = (): JSX.Element => {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     url: 'https://www.coleccionablespanama.com',
-    logo: '/assets/shared/ui/images/logo.svg',
+    logo: '/assets/shared/ui/images/logo.png',
     name: 'Coleccionables Panamá',
     description:
       'El mercado líder de coleccionables en Panamá. Especializado en monedas antiguas y cartas Pokémon.',

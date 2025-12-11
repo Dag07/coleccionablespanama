@@ -47,13 +47,13 @@ const Hero = () => {
             className="relative z-10 flex flex-wrap items-center justify-center gap-4"
           >
             <Link
-              href="/items/monedas"
+              href="/numismatica"
               className="group relative overflow-hidden rounded-full border-2 border-amber-500 bg-amber-600 px-8 py-4 text-center text-xl font-semibold text-white shadow-lg transition-all duration-150 hover:scale-105 hover:shadow-xl"
             >
               <span className="relative z-10">Monedas</span>
             </Link>
             <Link
-              href="/items/pokemon"
+              href="/cartas"
               className="group relative overflow-hidden rounded-full border-2 border-red-500 bg-red-600 px-8 py-4 text-center text-xl font-semibold text-white shadow-lg transition-all duration-150 hover:scale-105 hover:shadow-xl"
             >
               <span className="relative z-10">Pokémon</span>
